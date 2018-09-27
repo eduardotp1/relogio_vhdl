@@ -34,7 +34,7 @@ ENTITY SM1 IS
 END SM1;
 
 ARCHITECTURE BEHAVIOR OF SM1 IS
-    TYPE type_fstate IS (cus,mais_us,cds,mais_ds,cum,mais_um,cdm,mais_dm,cdh_2,cuh_4,cuh_9,mais_uh,mais_dh,nada);
+    TYPE type_fstate IS (cus,mais_us,cds,mais_ds,cum,mais_um,cdm,mais_dm,cdh_2,cuh_4,cuh_9,mais_uh,mais_dh,nada, zerador);
     SIGNAL fstate : type_fstate;
     SIGNAL reg_fstate : type_fstate;
     SIGNAL reg_selectConstante : STD_LOGIC_VECTOR(2 DOWNTO 0) := "000";
@@ -243,6 +243,8 @@ BEGIN
                     IF (NOT((Z = '1'))) THEN
                         reg_fstate <= mais_uh;
                     -- Inserting 'else' block to prevent latch inference
+						  ELSIF ((Z='1')) THEN
+							reg_fstate <= zerador;
                     ELSE
                         reg_fstate <= cuh_4;
                     END IF;
@@ -289,7 +291,7 @@ BEGIN
 
                     reg_carregaSaida <= "010000";
 
-                    reg_resetReg <= "001100";
+                    reg_resetReg <= "001111";
 
                     reg_selectTempo <= "100";
                 WHEN mais_dh =>
@@ -326,6 +328,19 @@ BEGIN
                     reg_resetReg <= "000000";
 
                     reg_selectTempo <= "000";
+					 WHEN zerador =>
+						  reg_fstate <= nada;
+						  
+						  reg_selectFuncaoULA <= '0';
+
+                    reg_selectConstante <= "000";
+
+                    reg_carregaSaida <= "000000";
+
+                    reg_resetReg <= "111111";
+
+                    reg_selectTempo <= "000";
+						  
                 WHEN OTHERS => 
                     reg_selectConstante <= "XXX";
                     reg_selectTempo <= "XXX";

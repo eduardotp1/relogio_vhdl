@@ -27,7 +27,7 @@ architecture simples of fluxoDados is
 	
 	constant um : std_logic_vector(3 downto 0) := "0001";
 	constant dois : std_logic_vector(3 downto 0) := "0010";
-	constant quatro : std_logic_vector(3 downto 0) := "0100";
+	constant quatro : std_logic_vector(3 downto 0) := "0011";
 	constant cinco : std_logic_vector(3 downto 0) := "0101";
 	constant nove : std_logic_vector(3 downto 0) := "1001";
 	

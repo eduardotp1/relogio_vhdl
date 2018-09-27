@@ -9,8 +9,9 @@ USE IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity clock_50_to_1s is
 port (
    clk_50: in std_logic;
-	modo_ajuste: in std_logic;
-	modo_ajuste_fino: in std_logic;
+	modo_ajuste_hora: in std_logic;
+	modo_ajuste_min: in std_logic;
+	modo_ajuste_seg: in std_logic;
    clk_1s: out std_logic
   );
 end clock_50_to_1s;
@@ -22,9 +23,11 @@ begin
 	process(clk_50)
 		begin
 			if(rising_edge(clk_50)) then
-				if (modo_ajuste_fino = '1') and (modo_ajuste = '0') then
-					counter <= counter + x"0000009";
-				elsif (modo_ajuste_fino = '0') and (modo_ajuste = '1') then
+				if (modo_ajuste_seg = '1') and (modo_ajuste_min = '0') and (modo_ajuste_hora = '0') then
+					counter <= counter + x"0000006";
+				elsif (modo_ajuste_seg = '0') and (modo_ajuste_min = '1') and (modo_ajuste_hora = '0') then
+					counter <= counter + x"0000099";
+				elsif (modo_ajuste_seg = '0') and (modo_ajuste_min = '0') and (modo_ajuste_hora = '1') then
 					counter <= counter + x"0000999";
 				else
 					counter <= counter + x"0000001";
