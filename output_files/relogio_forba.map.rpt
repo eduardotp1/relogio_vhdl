@@ -1,0 +1,676 @@
+Analysis & Synthesis report for relogio_forba
+Thu Sep 27 12:17:18 2018
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |relogio_forba|SM1:CU|fstate
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: fluxoDados:FD|mux6to1:muxTempo
+ 12. Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:un_segundo_reg
+ 13. Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:dez_segundo_reg
+ 14. Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:un_minuto_reg
+ 15. Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:dez_minuto_reg
+ 16. Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:un_hora_reg
+ 17. Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:dez_hora_reg
+ 18. Port Connectivity Checks: "conversorHex7Seg:display7"
+ 19. Port Connectivity Checks: "conversorHex7Seg:display6"
+ 20. Port Connectivity Checks: "conversorHex7Seg:display5"
+ 21. Port Connectivity Checks: "conversorHex7Seg:display4"
+ 22. Port Connectivity Checks: "conversorHex7Seg:display3"
+ 23. Port Connectivity Checks: "conversorHex7Seg:display2"
+ 24. Port Connectivity Checks: "conversorHex7Seg:display1"
+ 25. Port Connectivity Checks: "conversorHex7Seg:display0"
+ 26. Port Connectivity Checks: "SM1:CU"
+ 27. Port Connectivity Checks: "fluxoDados:FD|ULA:ULA"
+ 28. Port Connectivity Checks: "fluxoDados:FD|mux5to1:muxConstante"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Sep 27 12:17:18 2018       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                      ; relogio_forba                               ;
+; Top-level Entity Name              ; relogio_forba                               ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 277                                         ;
+;     Total combinational functions  ; 257                                         ;
+;     Dedicated logic registers      ; 67                                          ;
+; Total registers                    ; 67                                          ;
+; Total pins                         ; 79                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; relogio_forba      ; relogio_forba      ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; SM1.vhd                          ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/SM1.vhd                 ;         ;
+; ULA.vhd                          ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/ULA.vhd                 ;         ;
+; conversorHex7Seg.vhd             ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/conversorHex7Seg.vhd    ;         ;
+; registradorGenerico.vhd          ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/registradorGenerico.vhd ;         ;
+; mux5to1.vhd                      ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd             ;         ;
+; edgeDetector.vhd                 ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/edgeDetector.vhd        ;         ;
+; mux6to1.vhd                      ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd             ;         ;
+; clock_50_to_1s.vhd               ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/clock_50_to_1s.vhd      ;         ;
+; fluxoDados.vhd                   ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd          ;         ;
+; relogio_forba.vhd                ; yes             ; User VHDL File  ; C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd       ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 277            ;
+;                                             ;                ;
+; Total combinational functions               ; 257            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 128            ;
+;     -- 3 input functions                    ; 30             ;
+;     -- <=2 input functions                  ; 99             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 169            ;
+;     -- arithmetic mode                      ; 88             ;
+;                                             ;                ;
+; Total registers                             ; 67             ;
+;     -- Dedicated logic registers            ; 67             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 79             ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 67             ;
+; Total fan-out                               ; 1104           ;
+; Average fan-out                             ; 2.29           ;
++---------------------------------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                            ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                              ; Entity Name         ; Library Name ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------+---------------------+--------------+
+; |relogio_forba                              ; 257 (0)             ; 67 (0)                    ; 0           ; 0            ; 0       ; 0         ; 79   ; 0            ; |relogio_forba                                                   ; relogio_forba       ; work         ;
+;    |SM1:CU|                                 ; 27 (27)             ; 14 (14)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|SM1:CU                                            ; SM1                 ; work         ;
+;    |clock_50_to_1s:clock_1seg|              ; 156 (156)           ; 28 (28)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|clock_50_to_1s:clock_1seg                         ; clock_50_to_1s      ; work         ;
+;    |conversorHex7Seg:display2|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|conversorHex7Seg:display2                         ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:display3|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|conversorHex7Seg:display3                         ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:display4|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|conversorHex7Seg:display4                         ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:display5|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|conversorHex7Seg:display5                         ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:display6|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|conversorHex7Seg:display6                         ; conversorHex7Seg    ; work         ;
+;    |conversorHex7Seg:display7|              ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|conversorHex7Seg:display7                         ; conversorHex7Seg    ; work         ;
+;    |edgeDetector:detectorSub0|              ; 0 (0)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|edgeDetector:detectorSub0                         ; edgeDetector        ; work         ;
+;    |fluxoDados:FD|                          ; 32 (1)              ; 24 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD                                     ; fluxoDados          ; work         ;
+;       |ULA:ULA|                             ; 13 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|ULA:ULA                             ; ULA                 ; work         ;
+;       |mux5to1:muxConstante|                ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|mux5to1:muxConstante                ; mux5to1             ; work         ;
+;       |mux6to1:muxTempo|                    ; 16 (16)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|mux6to1:muxTempo                    ; mux6to1             ; work         ;
+;       |registradorGenerico:dez_hora_reg|    ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|registradorGenerico:dez_hora_reg    ; registradorGenerico ; work         ;
+;       |registradorGenerico:dez_minuto_reg|  ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|registradorGenerico:dez_minuto_reg  ; registradorGenerico ; work         ;
+;       |registradorGenerico:dez_segundo_reg| ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|registradorGenerico:dez_segundo_reg ; registradorGenerico ; work         ;
+;       |registradorGenerico:un_hora_reg|     ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|registradorGenerico:un_hora_reg     ; registradorGenerico ; work         ;
+;       |registradorGenerico:un_minuto_reg|   ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|registradorGenerico:un_minuto_reg   ; registradorGenerico ; work         ;
+;       |registradorGenerico:un_segundo_reg|  ; 0 (0)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |relogio_forba|fluxoDados:FD|registradorGenerico:un_segundo_reg  ; registradorGenerico ; work         ;
++---------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |relogio_forba|SM1:CU|fstate                                                                                                                                                                                        ;
++----------------+------------+----------------+----------------+--------------+--------------+--------------+----------------+------------+----------------+------------+----------------+------------+----------------+-------------+
+; Name           ; fstate.cus ; fstate.mais_dh ; fstate.mais_uh ; fstate.cuh_9 ; fstate.cuh_4 ; fstate.cdh_2 ; fstate.mais_dm ; fstate.cdm ; fstate.mais_um ; fstate.cum ; fstate.mais_ds ; fstate.cds ; fstate.mais_us ; fstate.nada ;
++----------------+------------+----------------+----------------+--------------+--------------+--------------+----------------+------------+----------------+------------+----------------+------------+----------------+-------------+
+; fstate.nada    ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 0           ;
+; fstate.mais_us ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 1              ; 1           ;
+; fstate.cds     ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 1          ; 0              ; 1           ;
+; fstate.mais_ds ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 1              ; 0          ; 0              ; 1           ;
+; fstate.cum     ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 1          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.mais_um ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 1              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.cdm     ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 1          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.mais_dm ; 0          ; 0              ; 0              ; 0            ; 0            ; 0            ; 1              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.cdh_2   ; 0          ; 0              ; 0              ; 0            ; 0            ; 1            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.cuh_4   ; 0          ; 0              ; 0              ; 0            ; 1            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.cuh_9   ; 0          ; 0              ; 0              ; 1            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.mais_uh ; 0          ; 0              ; 1              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.mais_dh ; 0          ; 1              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
+; fstate.cus     ; 1          ; 0              ; 0              ; 0            ; 0            ; 0            ; 0              ; 0          ; 0              ; 0          ; 0              ; 0          ; 0              ; 1           ;
++----------------+------------+----------------+----------------+--------------+--------------+--------------+----------------+------------+----------------+------------+----------------+------------+----------------+-------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 67    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 20    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 24    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+; 4:1                ; 28 bits   ; 56 LEs        ; 56 LEs               ; 0 LEs                  ; Yes        ; |relogio_forba|clock_50_to_1s:clock_1seg|counter[19] ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |relogio_forba|fluxoDados:FD|mux6to1:muxTempo|Mux2   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|mux6to1:muxTempo ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; len            ; 4     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:un_segundo_reg ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:dez_segundo_reg ;
++----------------+-------+-----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                  ;
++----------------+-------+-----------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                        ;
++----------------+-------+-----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:un_minuto_reg ;
++----------------+-------+---------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                ;
++----------------+-------+---------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                      ;
++----------------+-------+---------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:dez_minuto_reg ;
++----------------+-------+----------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                 ;
++----------------+-------+----------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                       ;
++----------------+-------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:un_hora_reg ;
++----------------+-------+-------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                              ;
++----------------+-------+-------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                    ;
++----------------+-------+-------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fluxoDados:FD|registradorGenerico:dez_hora_reg ;
++----------------+-------+--------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                               ;
++----------------+-------+--------------------------------------------------------------------+
+; larguradados   ; 4     ; Signed Integer                                                     ;
++----------------+-------+--------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display7" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display6" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display5" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display4" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display3" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display2" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display1" ;
++---------------+-------+----------+--------------------+
+; Port          ; Type  ; Severity ; Details            ;
++---------------+-------+----------+--------------------+
+; dadohex[3..1] ; Input ; Info     ; Stuck at GND       ;
+; apaga         ; Input ; Info     ; Stuck at GND       ;
+; negativo      ; Input ; Info     ; Stuck at GND       ;
+; overflow      ; Input ; Info     ; Stuck at GND       ;
++---------------+-------+----------+--------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:display0" ;
++---------------+-------+----------+--------------------+
+; Port          ; Type  ; Severity ; Details            ;
++---------------+-------+----------+--------------------+
+; dadohex[3..1] ; Input ; Info     ; Stuck at GND       ;
+; apaga         ; Input ; Info     ; Stuck at GND       ;
+; negativo      ; Input ; Info     ; Stuck at GND       ;
+; overflow      ; Input ; Info     ; Stuck at GND       ;
++---------------+-------+----------+--------------------+
+
+
++-------------------------------------------+
+; Port Connectivity Checks: "SM1:CU"        ;
++---------+-------+----------+--------------+
+; Port    ; Type  ; Severity ; Details      ;
++---------+-------+----------+--------------+
+; reset   ; Input ; Info     ; Stuck at GND ;
+; vainada ; Input ; Info     ; Stuck at VCC ;
++---------+-------+----------+--------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "fluxoDados:FD|ULA:ULA"                                                                  ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; sel[1]   ; Input  ; Info     ; Stuck at GND                                                                        ;
+; overflow ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "fluxoDados:FD|mux5to1:muxConstante" ;
++---------+-------+----------+-----------------------------------+
+; Port    ; Type  ; Severity ; Details                           ;
++---------+-------+----------+-----------------------------------+
+; a[3..1] ; Input ; Info     ; Stuck at GND                      ;
+; a[0]    ; Input ; Info     ; Stuck at VCC                      ;
+; b[3..2] ; Input ; Info     ; Stuck at GND                      ;
+; b[1]    ; Input ; Info     ; Stuck at VCC                      ;
+; b[0]    ; Input ; Info     ; Stuck at GND                      ;
+; c[1..0] ; Input ; Info     ; Stuck at GND                      ;
+; c[3]    ; Input ; Info     ; Stuck at GND                      ;
+; c[2]    ; Input ; Info     ; Stuck at VCC                      ;
+; d[3]    ; Input ; Info     ; Stuck at GND                      ;
+; d[2]    ; Input ; Info     ; Stuck at VCC                      ;
+; d[1]    ; Input ; Info     ; Stuck at GND                      ;
+; d[0]    ; Input ; Info     ; Stuck at VCC                      ;
+; e[2..1] ; Input ; Info     ; Stuck at GND                      ;
+; e[3]    ; Input ; Info     ; Stuck at VCC                      ;
+; e[0]    ; Input ; Info     ; Stuck at VCC                      ;
++---------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 79                          ;
+; cycloneiii_ff         ; 67                          ;
+;     ENA               ; 4                           ;
+;     ENA CLR           ; 20                          ;
+;     plain             ; 43                          ;
+; cycloneiii_lcell_comb ; 259                         ;
+;     arith             ; 88                          ;
+;         2 data inputs ; 82                          ;
+;         3 data inputs ; 6                           ;
+;     normal            ; 171                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 14                          ;
+;         3 data inputs ; 24                          ;
+;         4 data inputs ; 128                         ;
+;                       ;                             ;
+; Max LUT depth         ; 8.30                        ;
+; Average LUT depth     ; 5.12                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Thu Sep 27 12:17:03 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off relogio_forba -c relogio_forba
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file sm1.vhd
+    Info (12022): Found design unit 1: SM1-BEHAVIOR File: C:/Users/tirta/Documents/relogio_forba_restored/SM1.vhd Line: 36
+    Info (12023): Found entity 1: SM1 File: C:/Users/tirta/Documents/relogio_forba_restored/SM1.vhd Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ULA-comportamento File: C:/Users/tirta/Documents/relogio_forba_restored/ULA.vhd Line: 14
+    Info (12023): Found entity 1: ULA File: C:/Users/tirta/Documents/relogio_forba_restored/ULA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file conversorhex7seg.vhd
+    Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: C:/Users/tirta/Documents/relogio_forba_restored/conversorHex7Seg.vhd Line: 17
+    Info (12023): Found entity 1: conversorHex7Seg File: C:/Users/tirta/Documents/relogio_forba_restored/conversorHex7Seg.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file registradorgenerico.vhd
+    Info (12022): Found design unit 1: registradorGenerico-comportamento File: C:/Users/tirta/Documents/relogio_forba_restored/registradorGenerico.vhd Line: 14
+    Info (12023): Found entity 1: registradorGenerico File: C:/Users/tirta/Documents/relogio_forba_restored/registradorGenerico.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux5to1.vhd
+    Info (12022): Found design unit 1: mux5to1-rtl File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 22
+    Info (12023): Found entity 1: mux5to1 File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 5
+Info (12021): Found 3 design units, including 1 entities, in source file edgedetector.vhd
+    Info (12022): Found design unit 1: edgeDetector-bordaSubida File: C:/Users/tirta/Documents/relogio_forba_restored/edgeDetector.vhd Line: 10
+    Info (12022): Found design unit 2: edgeDetector-bordaDescida File: C:/Users/tirta/Documents/relogio_forba_restored/edgeDetector.vhd Line: 23
+    Info (12023): Found entity 1: edgeDetector File: C:/Users/tirta/Documents/relogio_forba_restored/edgeDetector.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux6to1.vhd
+    Info (12022): Found design unit 1: mux6to1-arch File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 31
+    Info (12023): Found entity 1: mux6to1 File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 9
+Info (12021): Found 3 design units, including 1 entities, in source file divisorgenerico.vhd
+    Info (12022): Found design unit 1: divisorGenerico-divisaoPor2 File: C:/Users/tirta/Documents/relogio_forba_restored/divisorGenerico.vhd Line: 14
+    Info (12022): Found design unit 2: divisorGenerico-divisaoGenerica File: C:/Users/tirta/Documents/relogio_forba_restored/divisorGenerico.vhd Line: 27
+    Info (12023): Found entity 1: divisorGenerico File: C:/Users/tirta/Documents/relogio_forba_restored/divisorGenerico.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file clock_50_to_1s.vhd
+    Info (12022): Found design unit 1: clock_50_to_1s-arch File: C:/Users/tirta/Documents/relogio_forba_restored/clock_50_to_1s.vhd Line: 17
+    Info (12023): Found entity 1: clock_50_to_1s File: C:/Users/tirta/Documents/relogio_forba_restored/clock_50_to_1s.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file fluxodados.vhd
+    Info (12022): Found design unit 1: fluxoDados-simples File: C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd Line: 22
+    Info (12023): Found entity 1: fluxoDados File: C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file relogio_forba.vhd
+    Info (12022): Found design unit 1: relogio_forba-comportamento File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 17
+    Info (12023): Found entity 1: relogio_forba File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 5
+Info (12127): Elaborating entity "relogio_forba" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at relogio_forba.vhd(19): object "auxClock" assigned a value but never read File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 19
+Info (12128): Elaborating entity "fluxoDados" for hierarchy "fluxoDados:FD" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 32
+Info (12128): Elaborating entity "mux6to1" for hierarchy "fluxoDados:FD|mux6to1:muxTempo" File: C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd Line: 37
+Warning (10492): VHDL Process Statement warning at mux6to1.vhd(38): signal "unidade_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at mux6to1.vhd(39): signal "dezena_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at mux6to1.vhd(40): signal "unidade_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at mux6to1.vhd(41): signal "dezena_m" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at mux6to1.vhd(42): signal "unidade_h" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at mux6to1.vhd(43): signal "dezena_h" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 43
+Warning (10631): VHDL Process Statement warning at mux6to1.vhd(35): inferring latch(es) for signal or variable "output", which holds its previous value in one or more paths through the process File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Info (10041): Inferred latch for "output[0]" at mux6to1.vhd(35) File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Info (10041): Inferred latch for "output[1]" at mux6to1.vhd(35) File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Info (10041): Inferred latch for "output[2]" at mux6to1.vhd(35) File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Info (10041): Inferred latch for "output[3]" at mux6to1.vhd(35) File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Info (12128): Elaborating entity "mux5to1" for hierarchy "fluxoDados:FD|mux5to1:muxConstante" File: C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd Line: 43
+Warning (10492): VHDL Process Statement warning at mux5to1.vhd(27): signal "A" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at mux5to1.vhd(28): signal "B" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at mux5to1.vhd(29): signal "C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 29
+Warning (10492): VHDL Process Statement warning at mux5to1.vhd(30): signal "D" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at mux5to1.vhd(31): signal "E" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at mux5to1.vhd(24): inferring latch(es) for signal or variable "q", which holds its previous value in one or more paths through the process File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Info (10041): Inferred latch for "q[0]" at mux5to1.vhd(24) File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Info (10041): Inferred latch for "q[1]" at mux5to1.vhd(24) File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Info (10041): Inferred latch for "q[2]" at mux5to1.vhd(24) File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Info (10041): Inferred latch for "q[3]" at mux5to1.vhd(24) File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Info (12128): Elaborating entity "ULA" for hierarchy "fluxoDados:FD|ULA:ULA" File: C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd Line: 47
+Info (12128): Elaborating entity "registradorGenerico" for hierarchy "fluxoDados:FD|registradorGenerico:un_segundo_reg" File: C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd Line: 52
+Info (12128): Elaborating entity "SM1" for hierarchy "SM1:CU" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 43
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:display0" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 56
+Info (12128): Elaborating entity "clock_50_to_1s" for hierarchy "clock_50_to_1s:clock_1seg" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 87
+Info (12129): Elaborating entity "edgeDetector" using architecture "A:bordasubida" for hierarchy "edgeDetector:detectorSub0" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 101
+Warning (14026): LATCH primitive "fluxoDados:FD|mux5to1:muxConstante|q[0]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Warning (14026): LATCH primitive "fluxoDados:FD|mux5to1:muxConstante|q[1]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Warning (14026): LATCH primitive "fluxoDados:FD|mux5to1:muxConstante|q[2]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Warning (14026): LATCH primitive "fluxoDados:FD|mux5to1:muxConstante|q[3]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd Line: 24
+Warning (14026): LATCH primitive "fluxoDados:FD|mux6to1:muxTempo|output[0]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Warning (14026): LATCH primitive "fluxoDados:FD|mux6to1:muxTempo|output[1]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Warning (14026): LATCH primitive "fluxoDados:FD|mux6to1:muxTempo|output[2]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Warning (14026): LATCH primitive "fluxoDados:FD|mux6to1:muxTempo|output[3]" is permanently enabled File: C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd Line: 35
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 12
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 12
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 12
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 12
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 12
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 12
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 20 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 9
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 9
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 9
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 9
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd Line: 10
+Info (21057): Implemented 361 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 282 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 51 warnings
+    Info: Peak virtual memory: 4815 megabytes
+    Info: Processing ended: Thu Sep 27 12:17:18 2018
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:32
+
+

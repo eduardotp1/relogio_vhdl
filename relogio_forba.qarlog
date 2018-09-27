@@ -1,0 +1,26 @@
+Quartus Prime Archive log --	C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.qarlog
+
+Archive:	C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.qar
+Date:		Thu Sep 27 11:18:07 2018
+Quartus Prime		17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/tirta/Documents/relogio_forba_restored/SM1.smf
+C:/Users/tirta/Documents/relogio_forba_restored/SM1.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/ULA.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/assignment_defaults.qdf
+C:/Users/tirta/Documents/relogio_forba_restored/clock_50_to_1s.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/conversorHex7Seg.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/divisorGenerico.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/edgeDetector.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/fluxoDados.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/mux5to1.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/mux6to1.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/registradorGenerico.vhd
+C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.qpf
+C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.qsf
+C:/Users/tirta/Documents/relogio_forba_restored/relogio_forba.vhd
+	======= Total: 15 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
